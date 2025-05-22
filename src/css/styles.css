@@ -1,0 +1,253 @@
+*,
+*::after,
+*::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    scroll-behavior: smooth;
+    font-size: 18px;
+    background-color: #e6e6e6;
+}
+a{
+    text-decoration: none;
+    color: #ffb60b;
+}
+svg {
+    height: 2rem;
+    color: #000;
+}
+
+/* !Seccion del Header */
+
+.header{
+    width: 100%;
+    /* height: 100dvh; */ /* Ajustaremos esto para que el carrusel defina la altura principal del header */
+    /* background-color: bisque; */
+    position: relative;
+    padding-top: 80px; /* Espacio para el header fijo, ajusta si es necesario */
+}
+.contenedor_header{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    padding: 1rem;
+    position: fixed; /* Esto hace que tu barra de navegación sea fija */
+    top: 0; /* Asegura que esté en la parte superior */
+    z-index: 9;
+
+    /* Creando el egecto */
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3); /* Cambié border-radius a border-bottom */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+.contenedor_logo--izquierda img {
+    height: 50px; /* Ajusta el tamaño de tu logo si es muy grande */
+    width: auto;
+}
+.derecha{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.navegacion > a{
+    display: inline-block;
+    margin: 0 2rem;
+    padding: .5rem;
+    color: #333; /* Color de texto para los enlaces */
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+.navegacion > a:hover{
+    color: #fff;
+    transform: scale(1.4);
+}
+.dark-mode{
+    margin: 0 2rem;
+}
+
+.toggle{
+    display: none;
+}
+
+.titulo_central{
+margin: 10rem;
+    position: absolute;
+    z-index: 8;
+    height: 10rem;
+    width: 80%;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    align-content: space-evenly;
+    font-size: 1.5rem;
+    color: #ffb60b;
+}
+
+
+/* --- ESTILOS DEL CARRUSEL --- */
+.carousel-container {
+    width: 100%;
+    height: 100dvh; /* **Importante:** Define la altura de tu carrusel aquí */
+    overflow: hidden; /* Esconde las imágenes que están fuera de vista */
+    position: relative; /* Para posicionar los botones de navegación */
+    margin-top: -80px; /* Ajusta para que el carrusel suba detrás del header fijo, si es necesario */
+}
+
+.carousel-images {
+    display: flex;
+    transition: transform 0.5s ease-in-out; /* Animación de deslizamiento */
+    height: 100%;
+}
+
+.carousel-images img {
+    width: 100vw; /* Cada imagen ocupa el 100% del ancho del viewport */
+    height: 100%;
+    object-fit: cover; /* Ajusta la imagen sin distorsionar y cubre el contenedor */
+    flex-shrink: 0; /* Evita que las imágenes se encojan */
+}
+
+/* Botones de Navegación */
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 15px 10px;
+    cursor: pointer;
+    font-size: 24px;
+    z-index: 10; /* Asegura que estén por encima de las imágenes */
+    border-radius: 5px;
+    user-select: none;
+}
+
+.carousel-button.prev {
+    left: 10px;
+}
+
+.carousel-button.next {
+    right: 10px;
+}
+
+.carousel-button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Puntos de Navegación (indicadores) */
+.carousel-dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dot.active {
+    background-color: white;
+}
+
+/* Media Queries para responsividad */
+@media (max-width: 768px) {
+    .carousel-button {
+        padding: 10px 8px;
+        font-size: 20px;
+    }
+    .carousel-dots {
+        bottom: 10px;
+    }
+    .dot {
+        width: 10px;
+        height: 10px;
+    }
+    .carousel-container {
+        height: 300px; /* Ajusta la altura del carrusel para pantallas más pequeñas */
+    }
+}
+
+@media (max-width: 480px) {
+    .carousel-container {
+        height: 250px; /* Altura aún menor para móviles */
+    }
+}
+
+
+/* ! Seccion nosotros */
+
+.container_nosotros .container_glasscard{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100dvh;
+    margin: 1rem auto;
+    ; /* 
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3)Cambié border-radius a border-bottom */
+    /* box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); */
+}
+.titulo_nosotros, .titulo_glasscards{
+    margin: 0 auto;
+    padding: 1.5rem;
+    font-size: 3rem;
+    text-align: center;
+    text-transform: uppercase;
+    
+}
+.container_article{
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    margin: 0 auto;
+    padding: 2rem;
+
+           background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3); /* Cambié border-radius a border-bottom */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+.container__text{
+    min-width: 40%;
+    margin: 0 1rem;
+}
+.container__text > h3{
+    margin: 2rem 0;
+    text-transform: capitalize;
+    color: #ffb60b;
+}
+.container__text > p{
+    margin: 2rem 0;
+    text-transform: capitalize;
+    color: #555;
+}
+.container__image--text{
+        text-align: end;
+    min-width: 30rem;
+}
+.container__image--text > img{
+    border-radius: 2rem;
+    max-width: 80%;
+    height: 100%;
+}
+
