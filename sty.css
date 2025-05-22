@@ -1,0 +1,535 @@
+/* === Global Reset === */
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 18px;
+    background-color: #e6e6e6;
+}
+
+a {
+    text-decoration: none;
+    color: #ffb60b;
+}
+
+svg {
+    height: 2rem;
+    color: #000;
+}
+
+/* --- SECCIÓN DEL HEADER --- */
+.header {
+    width: 100%;
+    position: relative;
+    padding-top: 80px; /* Espacio para el header fijo */
+}
+
+.contenedor_header {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    padding: 1rem;
+    position: fixed;
+    top: 0;
+    z-index: 9;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.contenedor_logo--izquierda img {
+    height: 50px;
+    width: auto;
+}
+
+.derecha {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.navegacion > a {
+    display: inline-block;
+    margin: 0 2rem;
+    padding: .5rem;
+    color: #333;
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: all 0.3s ease; /* Añadida transición para el hover */
+}
+
+.navegacion > a:hover {
+    color: #fff;
+    transform: scale(1.1); /* Reducido un poco para que no sea tan drástico */
+}
+
+.dark-mode {
+    margin: 0 2rem;
+}
+
+.toggle {
+    display: none; /* Oculto por defecto, se mostrará en móviles */
+}
+
+.titulo_central {
+    margin: 10rem auto; /* Centrar horizontalmente */
+    position: absolute;
+    top: 50%; /* Centrar verticalmente */
+    left: 50%;
+    transform: translate(-50%, -50%); /* Ajuste fino de centrado */
+    z-index: 8;
+    height: auto; /* Altura automática para el contenido */
+    width: 80%;
+    max-width: 800px; /* Ancho máximo para legibilidad */
+    padding: 2rem; /* Relleno para el texto */
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    align-content: space-evenly;
+    font-size: 2rem; /* Aumentado ligeramente para impacto */
+    color: #ffb60b;
+}
+
+
+/* --- ESTILOS DEL CARRUSEL --- */
+.carousel-container {
+    width: 100%;
+    height: 100dvh;
+    overflow: hidden;
+    position: relative;
+    margin-top: -80px; /* Ajusta para que el carrusel suba detrás del header fijo, si es necesario */
+}
+
+.carousel-images {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    height: 100%;
+}
+
+.carousel-images img {
+    width: 100vw;
+    height: 100%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+/* Botones de Navegación */
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 15px 10px;
+    cursor: pointer;
+    font-size: 24px;
+    z-index: 10;
+    border-radius: 5px;
+    user-select: none;
+    transition: background-color 0.3s ease;
+}
+
+.carousel-button.prev {
+    left: 10px;
+}
+
+.carousel-button.next {
+    right: 10px;
+}
+
+.carousel-button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Puntos de Navegación (indicadores) */
+.carousel-dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dot.active {
+    background-color: white;
+}
+
+
+/* --- SECCIÓN NOSOTROS --- */
+
+.container_nosotros {
+    padding: 4rem 1rem; /* Añadido padding general a la sección */
+}
+
+.container_nosotros .container_glasscard {
+    display: flex;
+    flex-direction: column; /* Cambiado a columna por defecto para mejor adaptabilidad */
+    width: 100%;
+    height: auto; /* Ajusta la altura al contenido */
+    margin: 1rem auto;
+}
+
+.titulo_nosotros,
+.titulo_glasscards {
+    margin: 0 auto;
+    padding: 1.5rem;
+    font-size: 3rem;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.container_article {
+    display: flex;
+    flex-direction: row; /* Fila por defecto para pantallas grandes */
+    width: 90%; /* Aumentado ancho para mejor uso del espacio */
+    max-width: 1200px; /* Ancho máximo para el artículo */
+    margin: 0 auto;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.container__text {
+    flex: 1; /* Permite que el texto ocupe el espacio disponible */
+    margin: 0 1rem;
+}
+
+.container__text > h3 {
+    margin: 2rem 0;
+    text-transform: capitalize;
+    color: #ffb60b;
+    font-size: 1.8rem; /* Ajustado tamaño */
+}
+
+.container__text > p {
+    margin: 2rem 0;
+    text-transform: capitalize;
+    color: #555;
+    line-height: 1.6; /* Mejorado para legibilidad */
+}
+
+.container__image--text {
+    text-align: end;
+    min-width: 30rem; /* Mantenemos min-width, pero lo haremos flexible */
+    flex-shrink: 0; /* Evita que la imagen se encoja forzadamente */
+}
+
+.container__image--text > img {
+    border-radius: 2rem;
+    max-width: 100%; /* Asegura que la imagen no desborde */
+    height: auto; /* Mantener la proporción */
+}
+
+
+/* --- ESTILOS DE TARJETAS GENERALES (Glasscards) --- */
+
+.container {
+    width: 100%;
+    height: auto; /* Altura automática para el contenido */
+    min-height: 80vh; /* Mínimo 80% del viewport height */
+    background: url(images/back.jpg) no-repeat center center/cover; /* Asegúrate que la ruta sea correcta */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap; /* Permitir que las tarjetas se envuelvan */
+    padding: 2rem 1rem; /* Añadir padding para pantallas pequeñas */
+}
+
+.card {
+    width: 90%;
+    max-width: 440px;
+    color: #000;
+    text-align: center;
+    padding: 50px 30px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    margin: 2rem;
+    transition: all 0.3s ease; /* Añadida transición para hover */
+}
+
+.card img {
+    height: 10rem;
+    border-radius: 1rem;
+    box-shadow: 0px 0px 8px 5px rgba(0, 0, 0, 0.1);
+}
+
+.card h2 {
+    font-size: 25px;
+    font-weight: 600;
+    margin-top: 20px;
+}
+
+.card p {
+    font-size: 18px;
+    margin: 5px auto;
+}
+
+.btn {
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 500;
+    color: #e61212;
+    padding: 10px 30px;
+    border-radius: 30px;
+    margin: 30px 0 10px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background: grey;
+    border: 1px solid #fff;
+    color: #fff;
+}
+
+
+---
+
+/* ## Media Queries para Responsividad */
+
+/* He centralizado los media queries al final del archivo para una mejor organización y claridad. */
+
+/* ```css */
+/* --- Media Queries --- */
+
+/* Pantallas extra grandes (desktops grandes, TVs) */
+@media(min-width: 1200px){
+    .container_article {
+        width: 70%; /* Un poco más estrecho para pantallas muy grandes */
+    }
+}
+
+/* Pantallas de tabletas y laptops pequeñas (768px a 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    html {
+        font-size: 16px; /* Reducir tamaño de fuente base */
+    }
+
+    .navegacion > a {
+        margin: 0 1rem; /* Reducir margen entre enlaces de navegación */
+        font-size: 1rem;
+    }
+
+    .titulo_central {
+        font-size: 1.5rem;
+        width: 90%;
+    }
+
+    .carousel-container {
+        height: 70dvh; /* Altura más moderada para tabletas */
+    }
+
+    .container_article {
+        width: 95%; /* Ocupar más ancho en tabletas */
+        padding: 1.5rem;
+    }
+
+    .container__image--text {
+        min-width: 20rem; /* Ajustar min-width de la imagen */
+    }
+
+    .card {
+        margin: 1.5rem;
+        padding: 40px 25px;
+    }
+}
+
+/* Pantallas de móviles (hasta 768px) */
+@media (max-width: 768px) {
+    html {
+        font-size: 16px; /* Reducir tamaño de fuente base */
+    }
+
+    .contenedor_header {
+        justify-content: space-between; /* Ajustar layout para móviles */
+        padding: 0.8rem 1rem;
+    }
+
+    .navegacion {
+        display: none; /* Ocultar navegación principal */
+    }
+
+    .dark-mode {
+        margin: 0 1rem;
+    }
+
+    .toggle {
+        display: block; /* Mostrar botón de toggle en móviles */
+        font-size: 2rem;
+        cursor: pointer;
+    }
+
+    .titulo_central {
+        margin: 5rem auto; /* Ajustar margen */
+        font-size: 1.2rem;
+        width: 95%;
+        padding: 1.5rem;
+    }
+
+    .carousel-container {
+        height: 40dvh; /* Altura más compacta para móviles */
+        margin-top: -60px; /* Ajustar si el header es más pequeño */
+    }
+
+    .carousel-button {
+        padding: 10px 8px;
+        font-size: 20px;
+    }
+
+    .carousel-dots {
+        bottom: 10px;
+    }
+
+    .dot {
+        width: 10px;
+        height: 10px;
+    }
+
+    .titulo_nosotros,
+    .titulo_glasscards {
+        font-size: 2rem; /* Reducir tamaño de títulos */
+        padding: 1rem;
+    }
+
+    .container_article {
+        flex-direction: column; /* Apilar texto e imagen en móviles */
+        width: 95%;
+        padding: 1.5rem;
+    }
+
+    .container__text {
+        margin: 0; /* Eliminar márgenes laterales si están apilados */
+    }
+
+    .container__text > h3 {
+        margin: 1.5rem 0;
+        font-size: 1.5rem;
+    }
+
+    .container__text > p {
+        margin: 1.5rem 0;
+    }
+
+    .container__image--text {
+        text-align: center; /* Centrar imagen cuando está apilada */
+        min-width: unset; /* Permitir que la imagen se ajuste */
+        margin-top: 1.5rem;
+    }
+
+    .container__image--text > img {
+        max-width: 80%; /* Ajustar tamaño de imagen en móvil */
+    }
+
+    .card {
+        width: 95%; /* Las tarjetas ocupan casi todo el ancho */
+        margin: 1rem auto; /* Centrar y espaciar */
+        padding: 30px 20px;
+    }
+
+    .card h2 {
+        font-size: 22px;
+    }
+
+    .card p {
+        font-size: 16px;
+    }
+
+    .btn {
+        font-size: 16px;
+        padding: 8px 25px;
+    }
+}
+
+/* Pantallas muy pequeñas (smartphones en vertical) */
+@media (max-width: 480px) {
+    html {
+        font-size: 15px;
+    }
+
+    .contenedor_header {
+        padding: 0.5rem 0.5rem;
+    }
+
+    .contenedor_logo--izquierda img {
+        height: 40px;
+    }
+
+    .titulo_central {
+        font-size: 1rem;
+        padding: 1rem;
+    }
+
+    .carousel-container {
+        height: 30dvh;
+        margin-top: -50px;
+    }
+
+    .carousel-button {
+        padding: 8px 6px;
+        font-size: 18px;
+    }
+
+    .titulo_nosotros,
+    .titulo_glasscards {
+        font-size: 1.8rem;
+    }
+
+    .container__text > h3 {
+        font-size: 1.3rem;
+    }
+
+    .container__image--text > img {
+        max-width: 90%;
+    }
+
+    .card {
+        padding: 25px 15px;
+        margin: 1rem auto;
+    }
+
+    .card h2 {
+        font-size: 20px;
+    }
+
+    .card p {
+        font-size: 15px;
+    }
+
+    .btn {
+        padding: 6px 20px;
+    }
+}
